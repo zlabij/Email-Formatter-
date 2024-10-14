@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="profile-form-container">
+        <h2>Create Your Profile</h2>
+        <form id="profileForm">
+            <!-- Name and Age -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="18" placeholder="Enter your age" required>
+
+            <!-- Gender -->
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="non-binary">Non-binary</option>
+                <option value="other">Other</option>
+            </select>
+
+            <!-- Location -->
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" placeholder="Enter your location" required>
+
+            <!-- Bio -->
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio" placeholder="Tell something about yourself" rows="4" required></textarea>
+
+            <!-- Interests (multiple choices with checkboxes) -->
+            <label for="interests">Select your interests:</label>
+            <div id="interests">
+                <label><input type="checkbox" name="interests" value="coding"> Coding</label>
+                <label><input type="checkbox" name="interests" value="sports"> Sports</label>
+                <label><input type="checkbox" name="interests" value="music"> Music</label>
+                <label><input type="checkbox" name="interests" value="travel"> Travel</label>
+                <label><input type="checkbox" name="interests" value="gaming"> Gaming</label>
+                <label><input type="checkbox" name="interests" value="fitness"> Fitness</label>
+            </div>
+
+            <!-- Preferences (radio buttons) -->
+            <label for="preferences">Looking for:</label>
+            <div id="preferences">
+                <label><input type="radio" name="preferences" value="friends" required> Friends</label>
+                <label><input type="radio" name="preferences" value="dating" required> Dating</label>
+                <label><input type="radio" name="preferences" value="networking" required> Networking</label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Create Profile</button>
+        </form>
+
+        <div id="profileOutput" class="profile-output">
+            <!-- User profile preview will appear here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
