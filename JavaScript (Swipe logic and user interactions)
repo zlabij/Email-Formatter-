@@ -34,3 +34,40 @@ function swipe(direction) {
 // Button listeners
 likeBtn.addEventListener('click', () => swipe('right'));
 dislikeBtn.addEventListener('click', () => swipe('left'));
+
+
+
+
+document.getElementById('profileForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Get form values
+    const name = document.getElementById('name').value;
+    const age = document.getElementById('age').value;
+    const gender = document.getElementById('gender').value;
+    const location = document.getElementById('location').value;
+    const bio = document.getElementById('bio').value;
+
+    // Get interests (checkbox values)
+    const interests = [];
+    document.querySelectorAll('input[name="interests"]:checked').forEach(checkbox => {
+        interests.push(checkbox.value);
+    });
+
+    // Get preferences (radio value)
+    const preferences = document.querySelector('input[name="preferences"]:checked').value;
+
+    // Display user profile information
+    const profileOutput = `
+        <h3>Profile Summary</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Age:</strong> ${age}</p>
+        <p><strong>Gender:</strong> ${gender}</p>
+        <p><strong>Location:</strong> ${location}</p>
+        <p><strong>Bio:</strong> ${bio}</p>
+        <p><strong>Interests:</strong> ${interests.join(', ')}</p>
+        <p><strong>Looking for:</strong> ${preferences}</p>
+    `;
+
+    document.getElementById('profileOutput').innerHTML = profileOutput;
+});
