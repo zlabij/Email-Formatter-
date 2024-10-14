@@ -1,0 +1,36 @@
+const cards = document.querySelectorAll('.card');
+const likeBtn = document.getElementById('likeBtn');
+const dislikeBtn = document.getElementById('dislikeBtn');
+let currentIndex = 0;
+
+// Function to handle swiping
+function swipe(direction) {
+    if (currentIndex >= cards.length) return;
+
+    const currentCard = cards[currentIndex];
+    
+    if (direction === 'right') {
+        console.log('Liked:', currentCard.dataset.url);
+        currentCard.style.transform = 'translateX(100%)';
+    } else if (direction === 'left') {
+        console.log('Disliked:', currentCard.dataset.url);
+        currentCard.style.transform = 'translateX(-100%)';
+    }
+
+    currentCard.style.opacity = '0';
+
+    // Move to the next card
+    currentIndex++;
+
+    if (currentIndex < cards.length) {
+        setTimeout(() => {
+            currentCard.style.display = 'none'; // Hide the previous card
+        }, 300);
+    } else {
+        alert('No more pages to swipe!');
+    }
+}
+
+// Button listeners
+likeBtn.addEventListener('click', () => swipe('right'));
+dislikeBtn.addEventListener('click', () => swipe('left'));
